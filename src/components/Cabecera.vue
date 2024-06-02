@@ -3,8 +3,8 @@
         <nav class="navbar navbar-dark bg-black">
             <div class="container-fluid">
                 <a class="navbar-brand">App</a>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex text-white">
+                    Menu
                 </form>
             </div>
         </nav>

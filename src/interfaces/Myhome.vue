@@ -11,11 +11,7 @@ import Mycarrito from "../components/Mycarrito.vue"
         <Productos />
     </div>
     
-    
-    
 </template>
-
-
-<style lang="scss" scoped>
+<style lang="css" scoped>
 
 </style>

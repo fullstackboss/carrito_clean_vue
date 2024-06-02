@@ -1,5 +1,7 @@
 <script setup>
-
+const alerta=()=>{
+    alert("Hello World")
+}
 </script>
 <template>
     <div class="row border rounded mb-4">
@@ -19,7 +21,7 @@
                 </div>
                 <div class="d-flex">
                     <div class="agregar pe-1">
-                        <button class="btn btn-dark btn-sm"><i class="bi bi-dash"></i></button>
+                        <button @click="alerta" class="btn btn-dark btn-sm"><i class="bi bi-dash"></i></button>
                     </div>
                     <div class="restar">
                         <button class="btn btn-dark btn-sm"><i class="bi bi-plus"></i></button>

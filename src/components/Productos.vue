@@ -1,26 +1,29 @@
 <script setup>
-import {ref, reactive, onMounted} from "vue"
+import {ref, onMounted} from "vue"
 import {db} from "../data/datos.js"
 
-const productos = ref([])
+const listaproductos = ref([])
 onMounted (()=>{
-  productos.value=db
+  listaproductos.value=db
 }) 
 </script>
 <template>
     
     <div class="row p-0">
-      <div v-for="productos in productos" class="col-lg-4 col-md-6 col-sm-12 my-3">
+      <div v-for="elements in listaproductos" class="col-lg-4 col-md-6 col-sm-12 my-3">
         <div class="card">
           <!-- <div class="card-header"></div> -->
           <div class="card-body">
-            <h4 class="card-title">{{productos.nombre}}</h4>
-            <p class="card-text">{{productos.descripcion}}</p>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h4 class="card-title">{{elements.nombre}}</h4>
+              <img :src="'/img/' + elements.imagen" alt="" width="50">
+            </div>
+            <p class="card-text">{{elements.descripcion}}</p>
           </div>
           <div class="card-footer">
             <div class="d-flex justify-content-between align-items-center">
               <div class="button btn btn-dark btn-sm text-white"><i class="bi bi-plus"></i></div>
-              <div>S/. {{productos.precio}}</div>
+              <div>S/. {{elements.precio}}</div>
             </div>
           </div>
         </div>
@@ -29,6 +32,7 @@ onMounted (()=>{
 
 </template>
 <style lang="css" scoped>
+
 i{
   color:white;
   font-size: 22px;
@@ -40,5 +44,11 @@ i{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+img{
+  width: 60px;
+  border-radius: 50%;
+  border: 1px solid #f7f2eb;
+  background-color: #f3f0eb;
 }
 </style>

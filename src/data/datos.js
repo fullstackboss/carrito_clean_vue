@@ -2,7 +2,7 @@ export const db = [
   {
     id: 1,
     nombre: "Lukather",
-    imagen: "Producto_01",
+    imagen: "Bulvasor.png",
     descripcion:
       "Morue nisl, vel elementum dui mollis vel. Curabitur non ex id eros fermentum hendrerit.",
     precio: 299,
@@ -10,7 +10,7 @@ export const db = [
   {
     id: 2,
     nombre: "SRV",
-    imagen: "Producto_02",
+    imagen: "Charizard.png",
     descripcion:
       "Ce elementum dui mollis vel. Morbi ornare augue nisl, vCurabitur non ex id eros fermentum hendrerit.",
     precio: 349,
@@ -18,7 +18,7 @@ export const db = [
   {
     id: 3,
     nombre: "Borland",
-    imagen: "Producto_03",
+    imagen: "Snorlax.png",
     descripcion:
       "Curabitur non ex id eros fermentum hendrerit. Morbi ornare augue nisl, vel elementum dui mollis vel. ",
     precio: 329,
@@ -26,7 +26,7 @@ export const db = [
   {
     id: 4,
     nombre: "SRV",
-    imagen: "Producto_04",
+    imagen: "Mewtwo.png",
     descripcion:
       "Ce elementum dui mollis vel. Morbi ornare augue nisl, vCurabitur non ex id eros fermentum hendrerit.",
     precio: 349,
@@ -34,7 +34,7 @@ export const db = [
   {
     id: 5,
     nombre: "Borland",
-    imagen: "Producto_05",
+    imagen: "Wobbuffet.png",
     descripcion:
       "Curabitur non ex id eros fermentum hendrerit. Morbi ornare augue nisl, vel elementum dui mollis vel. ",
     precio: 329,
@@ -42,7 +42,7 @@ export const db = [
   {
     id: 6,
     nombre: "Kmeroand",
-    imagen: "Producto_06",
+    imagen: "Psyduck.png",
     descripcion:
       "Salimon rabieros fermentum hendrerorbi ornare augue nisl, vel elementum dui mollis vel. ",
     precio: 329,
