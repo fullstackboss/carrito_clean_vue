@@ -6,7 +6,7 @@ const props = defineProps({
     required: true,
   }
 })
-defineEmits(['vagregaCarrito', 'vrestaCarrito'])
+defineEmits(['vagregaCarrito'])
 
 
 </script>
@@ -28,7 +28,7 @@ defineEmits(['vagregaCarrito', 'vrestaCarrito'])
               <div @click="$emit('vagregaCarrito', producto)" class="button btn btn-dark btn-sm text-white me-1"><i
                   class="bi bi-plus"></i>
               </div>
-              <!--               <div @click="$emit('vrestaCarrito', producto)" class="button btn btn-dark btn-sm text-white"><i
+              <!--               <div @click="$emit('vincrementaCantidad', producto)" class="button btn btn-dark btn-sm text-white"><i
                   class="bi bi-dash"></i>
               </div> -->
             </div>

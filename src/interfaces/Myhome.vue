@@ -22,22 +22,38 @@ import { ref } from 'vue';
 const totalCarrito = ref(0)
 
 
-//AGREGANDO Y RESTANDO
+//AGREGANDO AL CARRITO
 const agregaCarrito = (dato) => {
     const existeCarrito = carrito.value.findIndex(producto => producto.id === dato.id)
-    console.log(existeCarrito);
 
     if (existeCarrito >= 0) {
         carrito.value[existeCarrito].cantidad++
-        //console.log(carrito.value[existeCarrito].cantidad++)
     }
     else {
         dato.cantidad = 1
         carrito.value.push(dato)
     }
 }
-const restaCarrito = (dato) => {
-    //console.log(dato);
+/* Sumando y restando */
+
+const incrementaCantidad = (id) => {
+    const index = carrito.value.findIndex(producto => producto.id === id)
+    if (carrito.value[index].cantidad >= 5) return
+    carrito.value[index].cantidad++
+}
+const decrementaCantidad = (id) => {
+    const index = carrito.value.findIndex(producto => producto.id === id)
+    if (carrito.value[index].cantidad <= 1) return
+    carrito.value[index].cantidad--
+}
+
+/* Eliminando producto */
+const eliminarProducto = (id) => {
+    carrito.value = carrito.value.filter(producto => producto.id !== id)
+}
+/* Vaciando el carrito */
+const limpiarCarrito = () => {
+    carrito.value = []
 }
 
 </script>
@@ -47,8 +63,9 @@ const restaCarrito = (dato) => {
     </div>
     <div class="container">
         <Mycarrito :vcarrito="carrito" :vtotalCarrito="totalCarrito" @vagregaCarrito="agregaCarrito"
-            @vrestaCarrito="restaCarrito" />
-        <Productos :vlistaProductos="listaProductos" @vagregaCarrito="agregaCarrito" @vrestaCarrito="restaCarrito" />
+            @vincrementaCantidad="incrementaCantidad" @vdecrementaCantidad="decrementaCantidad"
+            @veliminarProducto="eliminarProducto" @vlimpiarCarrito="limpiarCarrito" />
+        <Productos :vlistaProductos="listaProductos" @vagregaCarrito="agregaCarrito" />
     </div>
 
 </template>

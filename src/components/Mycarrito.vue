@@ -1,4 +1,7 @@
 <script setup>
+//Computed property
+import { computed } from 'vue';
+
 const props = defineProps({
     vtotalCarrito: {
         type: String,
@@ -9,8 +12,12 @@ const props = defineProps({
         required: true,
     }
 })
+const totalPagar = computed(() => {
+    return props.vcarrito.reduce((total, producto) => total + (producto.cantidad * producto.precio), 0)
+})
 
-defineEmits(['vagregaCarrito,vrestaCarrito'])
+
+defineEmits(['vagregaCarrito', 'vincrementaCantidad', 'vdecrementaCantidad', 'veliminarProducto', 'vlimpiarCarrito'])
 </script>
 <template>
     <div class="row border rounded mb-4">
@@ -41,18 +48,28 @@ defineEmits(['vagregaCarrito,vrestaCarrito'])
                         </div>
                         <div class="d-flex">
                             <div class="restar btn-group">
-                                <button @click="$emit('vagregaCarrito')" class="btn btn-light btn-sm me-0"><i
-                                        class="bi bi-plus"></i></button>
-                                <button @click="$emit('vrestaCarrito')" class="btn btn-light btn-sm"><i
-                                        class="bi bi-dash"></i></button>
-                                <button class="btn btn-light btn-sm "><i class="bi bi-trash"></i></button>
+                                <button @click="$emit('vdecrementaCantidad', producto.id)"
+                                    class="btn btn-light btn-sm"><i class="bi bi-dash"></i></button>
+                                <button @click="$emit('vincrementaCantidad', producto.id)"
+                                    class="btn btn-light btn-sm me-0"><i class="bi bi-plus"></i></button>
+                                <button @click="$emit('veliminarProducto', producto.id)"
+                                    class="btn btn-light btn-sm "><i class="bi bi-trash"></i></button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Fin Items -->
-                <div class="h6 pt-3 d-flex justify-content-end">
-                    Total de la compra: s/. {{ vtotalCarrito }}
+                <div class="pt-2 d-flex justify-content-between">
+                    <div class="">
+                        <button @click="$emit('vlimpiarCarrito')" class="btn btn-danger w-100 px-3">
+                            <i class="bi bi-trash pe-2 vc"></i> Limpiar</button>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div>Total de la compra: </div>
+                        <div class="bg-dark text-white px-2 py-1 rounded ms-2 fs-6">s/. {{
+                            totalPagar
+                            }}</div>
+                    </div>
                 </div>
             </div>
 
@@ -65,6 +82,11 @@ defineEmits(['vagregaCarrito,vrestaCarrito'])
 <style lang="css" scoped>
 i {
     color: #222;
+    font-size: 20px;
+}
+
+i.vc {
+    color: #ffffff;
     font-size: 20px;
 }
 
