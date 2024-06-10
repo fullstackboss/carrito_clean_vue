@@ -35,7 +35,7 @@ defineEmits(['vagregaCarrito', 'vincrementaCantidad', 'vdecrementaCantidad', 've
                 <div v-for="producto in vcarrito">
                     <div class="d-flex justify-content-between p-2 align-items-center border rounded px-3 mb-1">
                         <div class="producto col-1">
-                            <img class="img-fluid" :src="'/img/' + producto.imagen" alt="">
+                            <img class="img-fluid" :src="'/img/' + producto.imagen" alt="" width="40">
                         </div>
                         <div class="producto col-5">
                             {{ producto.nombre }}

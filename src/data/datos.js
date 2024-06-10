@@ -56,7 +56,7 @@ export const db = [
     precio: 250,
   },
   {
-    id: 7,
+    id: 8,
     nombre: "Venonat",
     imagen: "Venonat.png",
     descripcion:
@@ -64,7 +64,7 @@ export const db = [
     precio: 300,
   },
   {
-    id: 7,
+    id: 9,
     nombre: "Cubone",
     imagen: "Cubone.png",
     descripcion:

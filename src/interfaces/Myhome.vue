@@ -3,13 +3,19 @@ import Cabecera from "../components/Cabecera.vue"
 import Productos from "../components/Productos.vue"
 import Mycarrito from "../components/Mycarrito.vue"
 
-
+/* escucha todo */
+import { watch } from "vue"
 import { onMounted } from "vue"
 //importando la info del  carrito
 import { db } from "../data/datos.js"
 const listaProductos = ref([])
 onMounted(() => {
     listaProductos.value = db
+
+    const carritoStorage = localStorage.getItem('carrito')
+    if (carritoStorage) {
+        carrito.value = JSON.parse(carritoStorage)
+    }
 })
 
 
@@ -55,6 +61,17 @@ const eliminarProducto = (id) => {
 const limpiarCarrito = () => {
     carrito.value = []
 }
+
+const guardarLocalStorage = () => {
+    localStorage.setItem('carrito', JSON.stringify(carrito.value))
+}
+
+//escucha todo
+watch(carrito, () => {
+    guardarLocalStorage()
+}, {
+    deep: true
+})
 
 </script>
 <template>
